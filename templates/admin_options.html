@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+
+<head>
+
+
+	<title>Admin Options</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="static/css/admin_options_style.css">
+</head>
+
+<body>
+	<div class="pop-msg" id="pop-msg">
+
+	</div>
+	<div class="project-name">
+			Admin Options
+		</div>
+	<div class="btn" id="new-btn">
+		<ul>
+			<li>
+				<a href="{{ url_for('update_movie_database') }}">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					Add New Movies Into Database
+				</a>
+			</li>
+			<li>
+				<a href="{{ url_for('booking_info') }}">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					Ticket Booking Info Of Users
+				</a>
+			</li>
+			<li>
+				<a href="{{ url_for('user_info') }}">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					View All Users
+				</a>
+			</li>
+
+		</ul>
+	</div>
+	<script type="text/javascript">
+		document.getElementById("pop-msg").innerHTML = "Logged In Successfully";
+
+		setTimeout(function () {
+			document.getElementById("pop-msg").innerHTML = '';
+		}, 3000);
+	</script>
+</body>

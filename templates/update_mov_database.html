@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+
+<head>
+	<title>Update Movie Database</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" type="text/css" href="static/css/update_movie_database_style.css">
+</head>
+
+<body>
+	<div class="heading">
+	<h1>Available Movies In The Database</h1>
+</div>
+	<form method="POST">
+		<table class="t01" id="t01">
+			<tr class="table_row">
+				<th class="table_heading">Movie ID</th>
+				<th class="table_heading">Movie Name</th>
+				<th class="table_heading">Actors</th>
+				<th class="table_heading">Director</th>
+				<th class="table_heading">Ticket Price</th>
+				<th class="table_heading">Show-Time</th>
+			</tr>
+			{% for row in data %}
+		<tr class="table_row">
+			{% for cell in row %}
+			<td class="table_cell">{{ cell }}</td>
+			{% endfor %}
+		</tr>
+		{% endfor %}
+	</table>
+
+	<p class="note">Note: If you update new movies, the old movies with corresponding Movie_IDs will be replaced with New Movies.</p>
+	<div class="h3">
+	<h3>Update New Movies</h3>
+</div>
+	<table class="t02" id="t02">
+		<tr class="table_row">
+				<th class="table_heading">Movie ID</th>
+				<th class="table_heading">Movie Name</th>
+				<th class="table_heading">Actors</th>
+				<th class="table_heading">Director</th>
+				<th class="table_heading">Ticket Price</th>
+				<th class="table_heading">Show-Time</th>
+			</tr>
+			<tr class="table_row">
+				<td class="table_cell"><input type="text" name="mov-id-1" value="101" readonly></td>
+				<td class="table_cell"><input type="text" name="mov-name-1"></td>
+				<td class="table_cell"><input type="text" name="actors-1"></td>
+				<td class="table_cell"><input type="text" name="director-1"></td>
+				<td class="table_cell"><input type="text" name="price-1"></td>
+				<td class="table_cell"><input type="time" name="time-1"></td>
+			</tr>
+			<tr class="table_row">
+				<td class="table_cell"><input type="text" name="mov-id-2" value="102" readonly></td>
+				<td class="table_cell"><input type="text" name="mov-name-2"></td>
+				<td class="table_cell"><input type="text" name="actors-2"></td>
+				<td class="table_cell"><input type="text" name="director-2"></td>
+				<td class="table_cell"><input type="text" name="price-2"></td>
+				<td class="table_cell"><input type="time" name="time-2"></td>
+			</tr>
+			<tr class="table_row">
+				<td class="table_cell"><input type="text" name="mov-id-3" value="103" readonly></td>
+				<td class="table_cell"><input type="text" name="mov-name-3"></td>
+				<td class="table_cell"><input type="text" name="actors-3"></td>
+				<td class="table_cell"><input type="text" name="director-3"></td>
+				<td class="table_cell"><input type="text" name="price-3"></td>
+				<td class="table_cell"><input type="time" name="time-3"></td>
+			</tr>
+		</table>
+
+		<h1>{{ text }}</h1>
+		
+		<input type="submit" class="logbtn" value="Update">
+
+		
+	</form>
+</body>

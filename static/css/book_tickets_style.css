@@ -1,0 +1,276 @@
+*
+{
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	font-family: arial;
+	box-sizing: border-box;
+}
+
+body
+{
+	min-height: 150vh;
+	background-color: #09c6f9;
+    background-image: linear-gradient(315deg,#09c6f9 0%,#045de9 80%);
+}
+
+.login-form
+{
+	width: 500px;
+	background: #f1f1f1;
+	padding: 80px 40px;
+	border-radius: 10px;
+	position: absolute;
+	margin-top: 100px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.login-form h2
+{
+	text-align: center;
+	margin-bottom: 30px;
+	margin-top: -35px;
+}
+
+.txtb
+{
+	border-bottom: 2px solid #adadad;
+	position: relative;
+	margin: 30px 0;
+}
+
+.txtb input, #totalPrice, #selected
+{
+	font-size: 15px;
+	color: #333;
+	border: none;
+	width: 100%;
+	outline: none;
+	background: none;
+	padding: 0 5px;
+	height: 40px;
+}
+
+.txtb select
+{
+	font-size: 15px;
+	color: #333;
+	border: none;
+	width: 100%;
+	outline: none;
+	background: none;
+	padding: 0 5px;
+	height: 40px;
+}
+
+.txtb span::before
+{
+	content: attr(data-placeholder);
+	position: absolute;
+	top: 50%;
+	left: 5px;
+	color: #adadad;
+	transform: translateY(-50%);
+	z-index: -1;
+	transition: 0.5s;
+}
+
+.txtb span::after
+{
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 0px;
+	width: 0%;
+	height: 2px;
+	background: linear-gradient(120deg,#09c6f9,#045de9);
+	transition: 0.5s;
+}
+
+.focus + span::before
+{
+	top: -5px;
+}
+
+.focus + span::after
+{
+	width: 100%;
+}
+
+.logbtn
+{
+	display: block;
+	width: 100%;
+	height: 50px;
+	border: none;
+	background: linear-gradient(120deg,#3498db,#09c6f9,#045de9);
+	background-size: 200%;
+	color: #fff;
+	outline: none;
+	margin-bottom: 25px;
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.logbtn:hover
+{
+	background-position: right;
+}
+
+body .login-form .logbtn1
+{
+	position: relative;
+	text-decoration: none;
+	padding: 13px 0;
+	display: block;
+    width: 100%;
+    margin-top: 25px;
+	height: 50px;
+	border: none;
+	background: linear-gradient(120deg,#3498db,#09c6f9,#045de9);
+	background-size: 200%;
+	color: #fff;
+	outline: none;
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+body .login-form .logbtn1:hover
+{
+	background-position: right;
+}
+
+select option[disabled] {
+    display: none;
+}
+
+.radio
+{
+	/*border-bottom: 2px solid #adadad;*/
+	position: relative;
+	margin-top: 20px;
+	margin-bottom: 15px;
+	
+}
+
+.radio input
+{
+	font-size: 20px;
+	color: #adadad;
+	border: none;
+	
+	outline: none;
+	background: none;
+	padding: 0 10px;
+	height: 13px;
+}
+
+
+#snack
+{
+	color: #adadad;
+}
+
+.price-display, .snack-price, .snack-inst
+{
+	width: 250px;
+	background: #f1f1f1;
+	height: 150px;
+	padding: 20px 20px;
+	border-radius: 10px;
+	position: absolute;
+	left: 150%;
+	top: 30%;
+	transform: translate(-50%,-50%);
+}
+
+.price-display h3
+{
+	text-align: center;
+	/*margin-bottom: 60px;*/
+}
+
+#chkYes,#chkNo
+{
+	margin-right: 20px;
+}
+
+#popcorn,#burger,#fries,#coke
+{
+	width: 45%;
+	margin: 20px 0;
+	position: relative;
+}
+
+#totalPrice, #selected
+{
+	font-size: 30px;
+	text-align: center;
+	margin-top: 20px;
+}
+
+#snack-price, #snack-inst
+{
+	top: 70%;
+	height: 300px;
+	width: 300px;
+	border: none;
+}
+
+.selectBox {
+	position: relative;
+}
+
+.selectBox select {
+  
+  font-size: 15px;
+  color: #adadad;
+  border: none;
+  width: 100%;
+  outline: none;
+  background: none;
+  padding: 0 5px;
+  height: 40px;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes {
+  display: none;
+  border: 1px #dadada solid;
+  width: 70%;
+  padding: 0px 5px;
+  position: relative;
+}
+
+#checkboxes label {
+  display: inline-block;
+  padding: 1px 5px;
+}
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
+}
+
+#snack-inst
+{
+	left: -40%;
+	height: 250px;
+}
+
+.note-head
+{
+	text-align: center;
+	text-decoration: underline;
+	margin-top: 20px;
+	font-size: 20px;
+	font-weight: bold;
+}

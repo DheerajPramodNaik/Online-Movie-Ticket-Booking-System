@@ -1,0 +1,321 @@
+<!DOCTYPE HTML>
+
+<head>
+	<title>Book Tickets</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+
+	<link rel="stylesheet" type="text/css" href="static/css/book_tickets_style.css">
+
+</head>
+
+<body>
+
+	<form method="POST" class="login-form" id="login-form" style="height: 600px">
+		<h2>Book Tickets Online</h2>
+
+		<div class="txtb">
+			<!---<input type="email" name="name" autocomplete="off" required>--->
+			<select name="movie-name" id="movie-name" onchange="calculateTotal(); updateCheckBox(this);" required>
+				<option selected disabled hidden></option>
+				{% for i in movies %}
+				{% for j, num in zip(i, ids) %}
+				<option class="mov" id="{{ num }}" value="{{ j }}">{{ j }}</option>
+				{% endfor %}
+				{% endfor %}
+			</select>
+			<span data-placeholder="Select The Movie"></span>
+		</div>
+
+
+
+
+		<div class="selectBox" id="selectBox" onclick="showCheckboxes(); calculateTotal(); ShowHideDiv();">
+			<select required>
+				<option>Select Seats (Max 5)</option>
+			</select>
+			<div class="overSelect"></div>
+		</div>
+		<div class="singleCheckbox" id="checkboxes" style="display: none">
+			{% for i in mov_1 %}
+			<label>
+				<input class="single-checkbox" type="checkbox" name="mov-1" id="mov-1" value="{{ i }}" disabled="disabled" />{{ i
+				}}</label>
+			{% endfor %}
+			<br>
+			{% for j in mov_2 %}
+			<label>
+				<input class="single-checkbox" type="checkbox" name="mov-2" id="mov-2" value="{{ j }}" disabled="disabled" />{{ j
+				}}</label>
+			{% endfor %}
+			<br>
+			{% for k in mov_3 %}
+			<label>
+				<input class="single-checkbox" type="checkbox" name="mov-3" id="mov-3" value="{{ k }}" disabled="disabled" />{{ k
+				}}</label>
+			{% endfor %}
+			<br>
+		</div>
+
+		<div class="txtb">
+			<input type="email" name="email" autocomplete="off" required>
+			<span data-placeholder="Enter Your Email"></span>
+		</div>
+
+		<div class="txtb">
+			<input type="password" name="password" autocomplete="off" required>
+			<span data-placeholder="Enter Your Password"></span>
+		</div>
+
+		<div class="radio">
+			<p id="snack">Do You Wish To Buy Snacks?</p>
+			<label for="chkYes">Yes</label>
+			<input type="radio" id="chkYes" name="chk" onclick="ShowHideDiv()" value="Yes" required />
+
+			<label for="chkNo">No</label>
+			<input type="radio" id="chkNo" name="chk" onclick="ShowHideDiv()" value="No" />
+			<span data-placeholder="Do You Wish To Buy Snacks?"></span>
+		</div>
+
+
+		<div class="txtb" id="popcorn" style="display: none">
+			<input type="number" name="popcorn" autocomplete="off" min="0" max="5" value="0">
+			<span data-placeholder="Popcorn"></span>
+		</div>
+
+		<div class="txtb" id="burger" style="display: none">
+			<input type="number" name="burger" autocomplete="off" min="0" max="5" value="0">
+			<span data-placeholder="Burger"></span>
+		</div>
+
+		<div class="txtb" id="fries" style="display: none">
+			<input type="number" name="fries" autocomplete="off" min="0" max="5" value="0">
+			<span data-placeholder="French Fries"></span>
+		</div>
+
+		<div class="txtb" id="coke" style="display: none">
+			<input type="number" name="coke" autocomplete="off" min="0" max="5" value="0">
+			<span data-placeholder="Coke"></span>
+		</div>
+
+		<div class="price-display">
+			<h3>Total Price</h3>
+			<input type="text" id="totalPrice" name="totalPrice" value="0" readonly>
+			<span id="selected" style="display: none">0</span>
+		</div>
+
+
+		<div class="snack-price" id="snack-price" style="display: none">
+			<table class="table">
+
+				<tr class="table_heading">
+					<th class="table_cell">Snack Name</th>
+					<th class="table_cell">Price (In Rs.)</th>
+				</tr>
+
+				{% for row in snack %}
+				<tr class="table_row">
+					{% for cell in row %}
+					<td class="table_cell">{{ cell }}</td>
+					{% endfor %}
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+
+		<div class="snack-inst" id="snack-inst" style="display: none">
+			<p class="note-head">Please Note:</p>
+			<p><center>The Amount Of Snacks that you order will be reserved for you. You need to pay the money during your visit and it will not be calculated in Total Price section</center></p>
+		</div>
+
+		<div class="auth-text">
+			<h6>
+				<center>{{ text }}</center>
+			</h6>
+		</div>
+
+		<input type="submit" class="logbtn" value="Book Now">
+	</form>
+
+	<script type="text/javascript">
+		function ShowHideDiv() {
+			var chkYes = document.getElementById("chkYes");
+			var popcorn = document.getElementById("popcorn");
+			var burger = document.getElementById("burger");
+			var fries = document.getElementById("fries");
+			var coke = document.getElementById("coke");
+			var login_form = document.getElementById("login-form");
+			var snack_price = document.getElementById("snack-price");
+			var info = document.getElementById("snack-inst");
+			var selectBox = document.getElementById("selectBox");
+
+			popcorn.style.display = chkYes.checked ? "inline-block" : "none";
+			burger.style.display = chkYes.checked ? "inline-block" : "none";
+			fries.style.display = chkYes.checked ? "inline-block" : "none";
+			coke.style.display = chkYes.checked ? "inline-block" : "none";
+			snack_price.style.display = chkYes.checked ? "inline-block" : "none";
+			info.style.display = chkYes.checked ? "inline-block" : "none";
+			login_form.style.height = chkYes.checked ? "780px" : "600px";
+			login_form.style.height = selectBox.selected ? "550px" : "950px";
+
+		}
+
+		var expanded = false;
+
+
+		function showCheckboxes() {
+			var checkboxes = document.getElementById("checkboxes");
+			if (!expanded) {
+				checkboxes.style.display = "inline-block";
+				expanded = true;
+			} else {
+				checkboxes.style.display = "none";
+				expanded = false;
+			}
+		}
+
+		function calculateTotal() {
+			
+
+			var ticketPrice = {{ price|safe }};
+			var snck = {{ snck|safe }};
+			
+			var theForm = document.forms["login-form"];
+			var selectedMovie = theForm.elements["movie-name"];
+			
+  
+			const selectedElm = document.getElementById('selected');
+			const total = document.getElementById("totalPrice");
+
+			if (selectedMovie.value == 'Avengers Endgame') {
+				total.value = 0;
+				document.querySelectorAll("input[name=mov-1]").forEach(i => {
+  i.onclick = () =>   total.value = document.querySelectorAll('input[name=mov-1]:checked').length * ticketPrice[0];
+});
+			
+} else if (selectedMovie.value == 'The Dark Knight') {
+	total.value = 0;
+	document.querySelectorAll("input[name=mov-2]").forEach(i => {
+  i.onclick = () =>   total.value = document.querySelectorAll('input[name=mov-2]:checked').length * ticketPrice[1];
+});
+} else if (selectedMovie.value == 'Johnny English : Strikes Again') {
+	total.value = 0;
+	document.querySelectorAll("input[name=mov-3]").forEach(i => {
+  i.onclick = () =>   total.value = document.querySelectorAll('input[name=mov-3]:checked').length * ticketPrice[2];
+});
+} else {
+	selectedElm.innerHTML = 0;
+}
+			
+			
+
+			
+
+			// total.value = total.value + popcorn.value*snck[0] + burger.value*snck[1] + fries.value*snck[2] + coke.value*snck[3];
+
+		}
+	
+
+
+	</script>
+
+	<script type="text/javascript">
+		function updateCheckBox(opts) {
+			var mov_1 = document.getElementsByName("mov-1");
+			var mov_2 = document.getElementsByName("mov-2");
+			var mov_3 = document.getElementsByName("mov-3");
+			mov_1.disabled = true;
+			mov_2.disabled = true;
+			mov_3.disabled = true;
+
+			if (opts.value == 'Avengers Endgame') {
+				for (var i = 0; i <= mov_1.length - 1; i++) {
+					mov_1[i].disabled = false;
+				}
+				index = 0;
+				mov_2.forEach(myfunction);
+				mov_3.forEach(myfunction);
+				function myfunction(item, index) {
+					item.disabled = true;
+					item.checked = false;
+				}
+
+			} else if (opts.value == 'The Dark Knight') {
+				for (var i = 0; i <= mov_2.length - 1; i++) {
+					mov_2[i].disabled = false;
+				}
+				index = 0;
+				mov_1.forEach(myfunction);
+				mov_3.forEach(myfunction);
+				function myfunction(item, index) {
+					item.disabled = true;
+					item.checked = false;
+				}
+
+			} else if (opts.value == 'Johnny English : Strikes Again') {
+				for (var i = 0; i <= mov_3.length - 1; i++) {
+					mov_3[i].disabled = false;
+				}
+				index = 0;
+				mov_1.forEach(myfunction);
+				mov_2.forEach(myfunction);
+				function myfunction(item, index) {
+					item.disabled = true;
+					item.checked = false;
+				}
+			}
+			else {
+				index = 0;
+				mov_1.forEach(myfunction);
+				mov_2.forEach(myfunction);
+				mov_3.forEach(myfunction);
+				function myfunction(item, index) {
+					item.disabled = true;
+					item.checked = false;
+				}
+			}
+		}
+
+
+	</script>
+
+	<script type="text/javascript">
+		$(".txtb input").on("focus", function () {
+			$(this).addClass("focus");
+		});
+
+		$(".txtb input").on("blur", function () {
+			if ($(this).val() == "")
+				$(this).removeClass("focus");
+		});
+
+		$(".txtb select").on("focus", function () {
+			$(this).addClass("focus");
+		});
+
+		$(".txtb select").on("blur", function () {
+			if ($(this).val() == "")
+				$(this).removeClass("focus");
+		});
+
+		$(".radio input").on("focus", function () {
+			$(this).addClass("focus");
+		});
+
+		$(".radio input").on("blur", function () {
+			if ($(this).val() == "")
+				$(this).removeClass("focus");
+		});
+
+
+		$("input:checkbox").click(function () {
+			if ($("input:checkbox:checked").length > 5) {
+				return false;
+			}
+		});
+	</script>
+</body>

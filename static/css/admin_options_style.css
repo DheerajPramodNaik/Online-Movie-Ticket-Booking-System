@@ -1,0 +1,149 @@
+*
+{
+	margin: 0;
+	padding: 0;
+}
+
+body
+{
+    background-color: black;
+}
+
+.pop-msg
+{
+	color: #fff;
+	margin-top: 25px;
+	text-align: center;
+	background-color: green;
+}
+
+.project-name
+{
+	color: #fff;
+	position: relative;
+	text-decoration: none;
+	top: 100px;
+	display: block;
+	margin: 0 350px;
+    padding: 40px 60px;
+    border-radius: 15px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 30px;
+	overflow: hidden;
+	letter-spacing: 4px;
+	border: 3px solid;
+	border-image-source: linear-gradient(120deg,#3498db,#09c6f9,#045de9);
+	border-image-slice: 1;
+}
+
+.project-name:hover
+{
+	transition-delay: 0.4s;
+	border: 3px solid;
+	border-image-source: linear-gradient(120deg,#09c6f9,#045de9,#3498db);
+	border-image-slice: 1;
+}
+
+.btn
+{
+    width: 100%;
+    margin-top: 150px;
+}
+
+.btn ul li
+{
+	display: inline;
+}
+
+.btn ul li a
+{
+	position: relative;
+	display: inline-block;
+	padding: 30px 30px;
+	text-transform: uppercase;
+	color: #2196f3;
+	letter-spacing: 4px;
+	margin: 30px;
+	text-decoration: none;
+	font-size: 24px;
+	overflow: hidden;
+	transition: 0.2s;
+}
+
+.btn ul li a:hover
+{
+	color: #255784;
+	background: #2196f3;
+	box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
+	transition-delay: 1s;
+}
+
+.btn ul li a span
+{
+	position: absolute;
+	display: block;
+}
+
+.btn ul li a span:nth-child(1)
+{
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(90deg,transparent,#2196f3);
+}
+
+.btn ul li a:hover span:nth-child(1)
+{
+	left: 100%;
+	transition: 1s;
+}
+
+.btn ul li a span:nth-child(3)
+{
+	bottom: 0;
+	right: -100%;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(270deg,transparent,#2196f3);
+}
+
+.btn ul li a:hover span:nth-child(3)
+{
+	right: 100%;
+	transition: 1s;
+	transition-delay: 0.5s;
+}
+
+.btn ul li a span:nth-child(2)
+{
+	top: -100%;
+	right: 0;
+	width: 2px;
+	height: 100%;
+	background: linear-gradient(180deg,transparent,#2196f3);
+}
+
+.btn ul li a:hover span:nth-child(2)
+{
+	top: 100%;
+	transition: 1s;
+	transition-delay: 0.25s;
+}
+
+.btn ul li a span:nth-child(4)
+{
+	bottom: -100%;
+	left: 0;
+	width: 2px;
+	height: 100%;
+	background: linear-gradient(360deg,transparent,#2196f3);
+}
+
+.btn ul li a:hover span:nth-child(4)
+{
+	bottom: 100%;
+	transition: 1s;
+	transition-delay: 0.75s;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+
+<head>
+	<title>User Login</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+
+	<link rel="stylesheet" type="text/css" href="static/css/user_registration_style.css">
+
+</head>
+
+<body>
+	<form method="POST" class="login-form">
+		<h1>User Registration Form</h1>
+
+		<div class="txtb">
+			<input type="text" name="name" autocomplete="off" required>
+			<span data-placeholder="Enter Your Full Name"></span>
+		</div>
+
+		<div class="txtb">
+			<input type="tel" name="mobile" autocomplete="off" required>
+			<span data-placeholder="Enter Your Mobile Number"></span>
+		</div>
+
+		<div class="txtb">
+			<input type="email" name="email" required>
+			<span data-placeholder="Enter Your Email"></span>
+		</div>
+
+		<div class="txtb">
+			<input type="date" name="date" required>
+			<span data-placeholder="Enter Your Date Of Birth"></span>
+		</div>
+
+		<div class="txtb">
+			<input type="password" name="password" required>
+			<span data-placeholder="Enter Your Password"></span>
+		</div>
+
+		<div class="auth-text">
+			<h6>
+				<center>{{ text }}</center>
+			</h6>
+		</div>
+
+		<input type="submit" class="logbtn" value="Register">
+
+
+
+
+	</form>
+
+
+
+	<script type="text/javascript">
+		$(".txtb input").on("focus", function () {
+			$(this).addClass("focus");
+		});
+
+		$(".txtb input").on("blur", function () {
+			if ($(this).val() == "")
+				$(this).removeClass("focus");
+		});
+	</script>
+</body>

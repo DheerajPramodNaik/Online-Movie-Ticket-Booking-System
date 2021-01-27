@@ -1,0 +1,97 @@
+*
+{
+	margin: 0;
+	padding: 0;
+}
+
+body
+{
+	font-family: arial;
+	background: #ffffff;
+}
+
+.t01, .t02
+{
+	text-align: center;
+	margin: 80px;
+	margin-top: -10px;
+	width: 80%;
+	border-spacing: 2px;
+	border-radius: 2px;
+}
+
+.t01 .table_row:nth-child(even)
+{
+	background-color: #3ae8a0;
+}
+
+.t01 .table_row:nth-child(odd)
+{
+	background-color: #c0f57a;
+}
+
+.table_heading
+{
+	background-color: #32f032;
+}
+
+.table_cell
+{
+	padding: 10px;
+	text-align: center;
+	border: 1px solid black;
+}
+
+.table_heading
+{
+	text-align: center;
+	border: 1px solid black;
+}
+
+.note
+{
+	margin-top: -40px;
+	margin-left: 80px;
+}
+
+.heading h1
+{
+	margin-top: 20px;
+	text-align: center;
+}
+
+.table_cell input
+{
+	border: none;
+	outline: none;
+	text-align: center;
+}
+
+.logbtn
+{
+	display: block;
+	width: 20%;
+	margin-left: 600px;
+	height: 50px;
+	border: none;
+	background: linear-gradient(120deg,#3498db,#09c6f9,#045de9);
+	background-size: 200%;
+	color: #fff;
+	outline: none;
+	margin-bottom: 25px;
+	margin-top: -20px;
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.h3
+{
+	text-align: center;
+	/*margin-bottom: -5px;*/
+	margin-top: 10px;
+}
+
+/*.t2
+{
+	
+}*/

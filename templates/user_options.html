@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+
+<head>
+    <title>User Options</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" type="text/css" href="static/css/user_options_style.css">
+
+</head>
+<body>
+	<div class="pop-msg" id="pop-msg">
+
+	</div>
+
+	<div class="posters">
+		<h1>Currently Running Movies</h1>
+
+		<ul>
+
+			<li>
+				<div class="mov-1">
+					<img src="static/img/avengers_endgame.jpg" id="img">
+					<h5 id="title"><center>Avengers Endgame</center></h5>
+				</div>
+			</li>
+
+			<li>
+				<div class="mov-2">
+					<img src="static/img/dark_knight.jpg" id="img">
+					<h5 id="title"><center>The Dark Knight</center></h5>
+				</div>
+			</li>
+
+			<li>
+				<div class="mov-3">
+					<img src="static/img/johnny_english.jpg" id="img">
+					<h5 id="title"><center>Johnny English : Strikes Again</center></h5>
+				</div>
+			</li>
+
+		</ul>
+		
+	</div>
+
+	<div class="btn" id="new-btn">
+		<ul>
+			<li>
+				<a href="{{ url_for('book_tickets') }}">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					Book Tickets Now
+				</a>
+			</li>
+			<li>
+				<a href="{{ url_for('delete_user') }}" id="del">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					Delete My Account
+				</a>
+			</li>
+
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+		document.getElementById("pop-msg").innerHTML = "Logged In Successfully";
+
+		setTimeout(function () {
+			document.getElementById("pop-msg").innerHTML = '';
+		}, 3000);
+	</script>
+</body>

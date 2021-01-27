@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+
+<head>
+
+
+	<title>Welcome</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+
+	<link rel="stylesheet" type="text/css" href="static/css/booking_info_style.css">
+</head>
+
+<body>
+
+	<h2>List Of Ticket Bookings</h2>
+
+	<div class="booking">
+	<table class="table">
+		
+		<tr class="table_heading">
+			<th class="table_cell">Ticket ID</th>
+			<th class="table_cell">Customer Id</th>
+			<th class="table_cell">Name</th>
+			<th class="table_cell">Phone Number</th>
+			<th class="table_cell">Email</th>
+			<th class="table_cell">Movie Id</th>
+			<th class="table_cell">Movie Name</th>
+			<th class="table_cell">No. Of Tickets</th>
+			<th class="table_cell">Seats</th>
+			<th class="table_cell">Popcorn</th>
+			<th class="table_cell">Burger</th>
+			<th class="table_cell">Fries</th>
+			<th class="table_cell">Coke</th>
+			<th class="table_cell">Total Price</th>
+			
+		</tr>
+
+		{% for row in data %}
+		<tr class="table_row">
+			{% for cell in row %}
+			<td class="table_cell">{{ cell }}</td>
+			{% endfor %}
+		</tr>
+		{% endfor %}
+
+	</table>
+</div>
+</body>
