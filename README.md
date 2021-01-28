@@ -15,3 +15,7 @@ Online Movie Ticket Booking System Web App was created as a part of our college 
 - Flask
 - Python3 (Majorly with mysql.connector module)
 
+## Screenshots:
+
+Landing Page :
+![alt text](https://github.com/DheerajPramodNaik/Online-Movie-Ticket-Booking-System/raw/master/Screenshots/Add%20New%20Movies%20Into%20Database%20Page.png "Landing Page")
